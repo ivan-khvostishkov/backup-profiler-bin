@@ -41,3 +41,7 @@ EOF
 # 3. Prepare profile
 
 #java -jar ../BackupProfiler/backupProfiler.jar prepare
+
+# 4. Inspect profile
+
+#java -jar ../BackupProfiler/backupProfiler.jar inspect --profile ./important/size | tee ./important/size/inspect.log
