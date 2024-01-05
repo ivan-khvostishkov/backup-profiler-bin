@@ -45,3 +45,8 @@ EOF
 # 4. Inspect profile
 
 #java -jar ../BackupProfiler/backupProfiler.jar inspect --profile ./important/size | tee ./important/size/inspect.log
+
+# 5. Update profile
+
+#vim -o ./important/size/inspect.log ./important/size/profile-ack.txt
+#vim -o ./important/size/profile-ack.txt ./init-mac.sh
