@@ -12,24 +12,15 @@ EOF
 
 cat >profile-skip.txt <<"EOF"
 /dev/
-/Volumes/
-/System/Volumes/
-/private/var/vm/
-/net/
-/home/
-/Network/Servers/
-/vm/swapfile0
+/proc/
+/run/
+/snap/
+/sys/
+/var/snap/
+/mnt/
+/media/
 EOF
 
 cat >profile-unimportant.txt <<"EOF"
-/System/Applications/
-/System/Developer/
-/System/DriverKit/
-/System/iOSSupport/
-/System/Library/
-/Applications/
-/usr/
-/Library/
-/private/
-/opt/
+/tmp/
 EOF
