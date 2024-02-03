@@ -11,8 +11,6 @@ C:\
 EOF
 
 cat >profile-skip.txt <<"EOF"
-A:\
-B:\
 EOF
 
 cat >profile-unimportant.txt <<"EOF"
