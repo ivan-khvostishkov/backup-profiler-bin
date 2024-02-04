@@ -22,9 +22,14 @@ EOF
 
 # 3. Change permissions to backup user (optional)
 #chown -R backup:backup ./important ./unimportant 
+#setfacl -m u:backup:r /home/user
+#getfacl /home/user
 
 
 # 4. Inspect profile (run as backup user if needed)
+
+#sudo su - backup
+#set +o history
 
 #java -Dfile.encoding=UTF-8 -jar ../backup-profiler-bin/backupProfiler.jar inspect --profile ./important/size/ | tee ./important/size/inspect.log
 #java -Dfile.encoding=UTF-8 -jar ../backup-profiler-bin/backupProfiler.jar inspect --profile ./.../.../ | tee ./.../.../inspect.log
@@ -39,10 +44,10 @@ EOF
 
 # 6. Update profile
 
-#cp ./important/size/profile-ack.txt ./important/count/profile-ack.txt ./profile-unimportant.txt
+#cp ./important/size/profile-ack.txt ./important/count/profile-ack.txt
 #cp ./unimportant/size/profile-ack.txt ./unimportant/count/profile-ack.txt
 
-#vim -o ./important/size/inspect.log ./important/size/profile-ack.txt
+#vim -o ./important/size/inspect.log ./important/size/profile-ack.txt ./profile-unimportant.txt
 #vim -o ./important/size/profile-ack.txt ./init.sh
 
 #vim -o ./.../.../inspect.log ./.../.../profile-ack.txt
