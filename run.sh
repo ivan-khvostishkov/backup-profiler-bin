@@ -4,6 +4,7 @@
 
 echo 'Running Backup Profiler v3.0'
 
+set -e
 
 # 1. Setting up version control
 
@@ -14,6 +15,7 @@ profile.log
 profile.log.gz
 EOF
 
+cat profile-start.txt profile-unimportant.txt | while read -r f; do ls -lad "$f"; done
 
 # 2. Prepare profile (run as root if needed)
 
