@@ -31,8 +31,8 @@ EOF
 #sudo su - backup
 #set +o history
 
-#java -Dfile.encoding=UTF-8 -jar ../backup-profiler-bin/backupProfiler.jar inspect --profile ./important/size/ | tee ./important/size/inspect.log
-#java -Dfile.encoding=UTF-8 -jar ../backup-profiler-bin/backupProfiler.jar inspect --profile ./.../.../ | tee ./.../.../inspect.log
+backup_profile="./important/size/"
+#java -Dfile.encoding=UTF-8 -jar ../backup-profiler-bin/backupProfiler.jar inspect --profile "$backup_profile" | tee -a "${backup_profile}"/inspect.log
 
 #cat important/size/inspect.log unimportant/size/inspect.log df.log
 
