@@ -11,10 +11,10 @@ mkdir -p ./important/count/ ./important/size/ ./important/time/ ./unimportant/co
 
 previous='../2024-05-01.hostname/'
 
-cp -v ../$previous/important/count/profile-ack.txt ./important/count/ 
-cp -v ../$previous/important/size/profile-ack.txt ./important/size/ 
-cp -v ../$previous/important/time/profile-ack.txt ./important/time/ 
-cp -v ../$previous/unimportant/count/profile-ack.txt ./unimportant/count/ 
-cp -v ../$previous/unimportant/size/profile-ack.txt ./unimportant/size/ 
+cp -v "$previous/important/count/profile-ack.txt" ./important/count/ 
+cp -v "$previous/important/size/profile-ack.txt" ./important/size/ 
+cp -v "$previous/important/time/profile-ack.txt" ./important/time/ 
+cp -v "$previous/unimportant/count/profile-ack.txt" ./unimportant/count/ 
+cp -v "$previous/unimportant/size/profile-ack.txt" ./unimportant/size/ 
 
 
