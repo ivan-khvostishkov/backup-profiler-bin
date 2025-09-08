@@ -1,6 +1,6 @@
 # Backup Profiler
 
-A Java application for analyzing and reviewing disk storage to identify what files and directories are important for cleanup and space management.
+Backup Profiler by NoSocial.Net is a Digital Asset Inventory tool - a Java application for systematically cataloging and reviewing disk storage to identify what files and directories are important for cleanup and space management.
 
 ## What it does
 
@@ -55,6 +55,10 @@ java -jar backupProfiler.jar inspect [--profile <dir>] [--incomplete] [--limit <
 - `profile-unimportant.txt` - Paths marked as low priority for cleanup
 - `profile-ack.txt` - Acknowledged/reviewed paths during cleanup process
 
+## Results
+
+This size-first approach delivers faster results with maximum impact - the biggest and most expensive storage consumers are inventoried and cleaned up first, while the long tail of small files (which have minimal storage impact) can be safely ignored.
+
 ## Use Case
 
 A unique storage analysis tool for reviewing and cleaning up disk space. Unlike traditional hierarchical disk cleaners, it presents storage as a flat list of paths sorted by size in decreasing order, with files and folders mixed together.
@@ -69,3 +73,23 @@ A unique storage analysis tool for reviewing and cleaning up disk space. Unlike 
 - **Mixed presentation**: Files and folders sorted together by actual storage impact
 
 This approach is more efficient than traditional tree-view disk cleaners because it prioritizes storage impact over file system structure, allowing you to quickly identify and clean the biggest space consumers.
+
+## Workflow
+
+1. **Start from the top** - Open profile in inspect mode, beginning with largest storage consumers
+2. **Make decisions** for each path prefix:
+   - **Important** - Mark as reviewed (acknowledged)
+   - **Unimportant** - Mark as reviewed for potential cleanup/exclusion
+   - **Uncertain** - Press Enter to dive deeper into the folder for detailed analysis
+3. **Navigate efficiently** - Use 'n' to jump to next unreviewed item
+4. **Target 90-95% coverage** - Focus on reviewing until 90-95% of total storage is analyzed
+5. **Create exclusion lists** - Use reviewed data to form backup exclusion rules or deletion candidates
+6. **Generate inventory** - At completion, you have a virtual assets inventory list (profile-ack.txt) documenting all reviewed storage, similar to enterprise inventorization processes
+
+### Why This Approach Works
+
+**Pareto Principle in Action**: Like enterprise inventory management, this method focuses on the most valuable items first. Starting with the most valuable items is a best practice in inventory counts, helping ensure accuracy and reduce risk for the most impactful components. The top 10% of files typically represent 80-90% of storage impact.
+
+**Diminishing Returns**: Moving down the list increases effort (more files to review) while decreasing value (smaller file sizes). The remaining 10% "long tail" has minimal impact on backup size and cleanup benefits. You can stop reviewing when you feel you've covered enough - typically at 90-95% - and still achieve optimal cost-benefit ratio for your cleanup efforts.
+
+**Maximum Impact, Minimum Effort**: By reviewing from largest to smallest, you achieve the biggest storage optimization with the least time investment. This delivers the best price-performance ratio - maximum storage savings for minimum review time. Even if you don't review the final 10%, you've already covered 90% of the storage impact - the most critical portion for backup optimization and space management.
