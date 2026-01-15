@@ -4,6 +4,9 @@
 
 echo 'Initializing Backup Profiler v3.0'
 
+df -h / | tee df.log
+df -ih / | tee -a df.log
+
 # Create config startup files for macOS
 
 cat >profile-start.txt <<"EOF"

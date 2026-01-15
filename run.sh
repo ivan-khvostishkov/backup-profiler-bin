@@ -1,10 +1,12 @@
 ## Copyright (c) 2013-2023 NoSocial.Net
 
-### Use this file as a template and copy to your backup dir, e.g., to `../2024-08-01.hostname/`
-
 echo 'Running Backup Profiler v3.0'
 
 set -e
+
+vt_dir=$(dirname "$0")
+vt_dir=$(cd "$vt_dir" && pwd)
+
 
 # 1. Setting up version control
 
@@ -17,9 +19,10 @@ EOF
 
 cat profile-start.txt profile-unimportant.txt | while read -r f; do ls -lad "$f"; done
 
+
 # 2. Prepare profile (run as root if needed)
 
-#java -Dfile.encoding=UTF-8 -jar ../backup-profiler-bin/backupProfiler.jar prepare
+java -Dfile.encoding=UTF-8 -jar "$vt_dir"/backupProfiler.jar prepare
 
 
 # 3. Change permissions to backup user (optional)
@@ -34,9 +37,10 @@ cat profile-start.txt profile-unimportant.txt | while read -r f; do ls -lad "$f"
 #set +o history
 
 backup_profile="./important/size/"
-#java -Dfile.encoding=UTF-8 -jar ../backup-profiler-bin/backupProfiler.jar inspect --profile "$backup_profile" | tee -a "${backup_profile}"/inspect.log
+#java -Dfile.encoding=UTF-8 -jar $(vt_dir)/backup-profiler-bin/backupProfiler.jar inspect --profile "$backup_profile" | tee -a "${backup_profile}"/inspect.log
 
 #cat important/size/inspect.log unimportant/size/inspect.log df.log
+
 
 # 5. Visualize in Gephi
 
@@ -53,8 +57,8 @@ backup_profile="./important/size/"
 #vim -o ./important/size/inspect.log ./important/size/profile-ack.txt ./profile-unimportant.txt
 #vim -o ./important/size/profile-ack.txt ./init.sh
 
-#vim -o ./.../.../inspect.log ./.../.../profile-ack.txt
-#vim -o ./.../.../profile-ack.txt ./init.sh
+#vim -o ./././inspect.log ./././profile-ack.txt
+#vim -o ./././profile-ack.txt ./init.sh
 
 
 # 7. Compress / unconmpress profile (when done with inspecting / need to re-inspect)
@@ -67,3 +71,4 @@ backup_profile="./important/size/"
 
 #git add .
 #git status
+
